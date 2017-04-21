@@ -27,15 +27,15 @@ module.exports = (function() {
         },
 
         add_user: function(req,res){
-          // var user = new User({email:"admin@admin.com",password:"admin"})
-          // user.save(function(err,data){
-          //   if(err){
-          //     console.log("ERROR SAVING NEW USER".red)
-          //     res.redirect("/")
-          //   }else{
-          //     res.redirect("/users")
-          //   }
-          // })
+          var user = new User({email:"admin@admin.com",password:"admin"})
+          user.save(function(err,data){
+            if(err){
+              console.log("ERROR SAVING NEW USER".red)
+              res.redirect("/")
+            }else{
+              res.redirect("/users")
+            }
+          })
         },
 
         get_user: function(req,res){
