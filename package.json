@@ -1,0 +1,13 @@
+{
+  "name": "iOS_API_Starter_Kit",
+  "version": "0.0.1",
+  "description": "Use this as a frame for API Backend",
+  "main": "server.js",
+  "author": "peachteaboba",
+  "dependencies": {
+    "body-parser": "latest",
+    "colors": "^1.1.2",
+    "express": "latest",
+    "mongoose": "latest"
+  }
+}
