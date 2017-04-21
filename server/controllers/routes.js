@@ -44,7 +44,6 @@ module.exports = (function() {
               console.log("ERROR CANT FIND USER".red)
               res.redirect("/")
             }else{
-              console.log(data)
               res.json(data);
             }
           })
