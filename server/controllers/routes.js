@@ -18,7 +18,7 @@ module.exports = (function() {
           User.find({}).exec(function(err,data){
             if(err){
               console.log("ERROR RETRIEVING ALL USERS".red)
-              res.redirect("/")
+              res.json({error:"Email is not registered"})
             }else{
               res.json(data)
             }
