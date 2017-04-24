@@ -20,7 +20,7 @@ module.exports = (function() {
               console.log("ERROR RETRIEVING ALL USERS".red)
               res.redirect("/")
             }else{
-              res.json(data)
+              res.json({wtf:"is happenin"})
             }
           })
 
