@@ -49,7 +49,7 @@ module.exports = (function() {
           User.findOne({email:req.body.email},function(err,data){
             if(err){
               console.log("ERROR CANT FIND USER".red)
-              res.json({error:"Email is not registered."},400)
+              res.json(err)
             }else{
               res.json(data);
             }
