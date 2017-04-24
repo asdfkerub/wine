@@ -27,6 +27,13 @@ module.exports = (function() {
         },
 
         add_user: function(req,res){
+          User.find({email: req.body.email}).exec(function(err,data){
+            if(err){
+              res.json({error:'Error while looking for an existing user.'})
+            }else{
+              res.json({error:'Email is already registered.'})
+            }
+          })
           // var user = new User({email:"admin@admin.com",password:"admin"})
           // user.save(function(err,data){
           //   if(err){
