@@ -18,7 +18,7 @@ module.exports = (function() {
           User.find({}).exec(function(err,data){
             if(err){
               console.log("ERROR RETRIEVING ALL USERS".red)
-              res.json({error:"Email is not registered"})
+              res.redirect("/")
             }else{
               res.json(data)
             }
@@ -49,7 +49,7 @@ module.exports = (function() {
           User.findOne({email:req.body.email},function(err,data){
             if(err){
               console.log("ERROR CANT FIND USER".red)
-              res.redirect("/")
+              res.json("Email is not registered.")
             }else{
               res.json(data);
             }
