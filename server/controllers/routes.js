@@ -46,10 +46,10 @@ module.exports = (function() {
         },
 
         get_user: function(req,res){
-          User.findOne({email:req.body.email},function(err,data){
+          User.findOne({email:req.body.email},function(err,data,next){
             if(err){
               console.log("ERROR CANT FIND USER".red)
-              res.send(400,{error:"Email is not registered."})
+              next({error:"Email is not registered."})
             }else{
               res.json(data);
             }
