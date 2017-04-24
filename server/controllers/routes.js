@@ -20,7 +20,7 @@ module.exports = (function() {
               console.log("ERROR RETRIEVING ALL USERS".red)
               res.redirect("/")
             }else{
-              res.json({wtf:"is happenin"})
+              res.json(data)
             }
           })
 
@@ -29,9 +29,15 @@ module.exports = (function() {
         add_user: function(req,res){
           User.find({email: req.body.email}).exec(function(err,data){
             if(err){
-              res.json({error:'Error while looking for an existing user.'})
+              console.log("Error while trying to add a user".red)
+              res.redirect("/")
+            }
+            if(data){
+              // if there is data found
+              res.json({error:"Email is already registered."})
             }else{
-              res.json({error:'Email is already registered.'})
+              // if there is no data
+              res.json(data)
             }
           })
           // var user = new User({email:"admin@admin.com",password:"admin"})
@@ -46,12 +52,17 @@ module.exports = (function() {
         },
 
         get_user: function(req,res){
-          User.findOne({email:req.body.email},function(err,data,next){
+          User.findOne({email:req.body.email},function(err,data){
             if(err){
               console.log("ERROR CANT FIND USER".red)
-              res.json({fck:"FCUKKKKK!"})
+              res.redirect("/")
+            }
+            if(data){
+              // if there are data found
+              res.json(data)
             }else{
-              res.json({fkkkk:"work! dammit"});
+              // if there is no data found
+              res.json({error:"Email is not registered."})
             }
           })
         }
