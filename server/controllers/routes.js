@@ -59,11 +59,8 @@ module.exports = (function() {
             }
             if(data){
               // if there are data found
-              if data.password != req.body.password{
-                res.json({error:"Incorrect password."})
-              }else{
-                res.json(data)
-              }
+              console.log(data)
+              res.json(data)
             }else{
               // if there is no data found
               res.json({error:"Email is not registered."})
