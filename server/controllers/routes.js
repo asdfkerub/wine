@@ -37,18 +37,16 @@ module.exports = (function() {
               res.json({error:"Email is already registered."})
             }else{
               // if there is no data
-              res.json(data)
+              var user = new User({email:req.body.email,password:req.body.password})
+              user.save(function(err,data){
+                if(err){
+                  console.log("Error saving new user".red)
+                  res.status(400).send("Error while creating a new user.");
+                }
+                res.sendStatus(200)
+              })
             }
           })
-          // var user = new User({email:"admin@admin.com",password:"admin"})
-          // user.save(function(err,data){
-          //   if(err){
-          //     console.log("ERROR SAVING NEW USER".red)
-          //     res.redirect("/")
-          //   }else{
-          //     res.redirect("/users")
-          //   }
-          // })
         },
 
         get_user: function(req,res){
