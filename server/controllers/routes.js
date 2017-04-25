@@ -27,7 +27,7 @@ module.exports = (function() {
         },
 
         add_user: function(req,res){
-          User.find({email: req.body.email}).exec(function(err,data){
+          User.findOne({email: req.body.email}).exec(function(err,data){
             if(err){
               console.log("Error while trying to add a user".red)
               res.redirect("/")
