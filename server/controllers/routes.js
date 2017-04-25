@@ -43,7 +43,7 @@ module.exports = (function() {
                   console.log("Error saving new user".red)
                   res.status(400).send("Error while creating a new user.");
                 }
-                res.sendStatus(200)
+                res.sendStatus(200);
               })
             }
           })
