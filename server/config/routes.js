@@ -13,7 +13,7 @@ module.exports = function(app) {
     app.get('/users', function(req, res) {
         route.all_users(req, res);
     });
-    app.get('/users/add',function(req,res){
+    app.post('/users/add',function(req,res){
       route.add_user(req,res);
     })
     app.post('/get_user',function(req,res){
