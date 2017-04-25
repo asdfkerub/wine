@@ -34,7 +34,7 @@ module.exports = (function() {
             }
             if(data){
               // if there is data found
-              res.json(400,{error:"Email is already registered."})
+              res.status(400).json({error:"Email is already registered."})
             }else{
               // if there is no data
               var user = new User({email:req.body.email,password:req.body.password})
