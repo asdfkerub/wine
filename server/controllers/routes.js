@@ -33,21 +33,27 @@ module.exports = (function() {
               res.redirect("/")
             }
             if(data){
-              // if there is data found
-              console.log("error where data is found".red)
-              res.status(400).json({error:"Email is already registered."})
+              console.log("there is data")
+              console.log(data)
             }else{
-              // if there is no data
-              var user = new User({email:req.body.email,password:req.body.password})
-              user.save(function(err,data){
-                if(err){
-                  console.log("Error saving new user".red)
-                  res.status(400).send("Error while creating a new user.");
-                }else{
-                  res.sendStatus(200);
-                }
-              })
+              console.log("there is no data")
             }
+            // if(data){
+            //   // if there is data found
+            //   console.log("error where data is found".red)
+            //   res.status(400).json({error:"Email is already registered."})
+            // }else{
+            //   // if there is no data
+            //   var user = new User({email:req.body.email,password:req.body.password})
+            //   user.save(function(err,data){
+            //     if(err){
+            //       console.log("Error saving new user".red)
+            //       res.status(400).send("Error while creating a new user.");
+            //     }else{
+            //       res.sendStatus(200);
+            //     }
+            //   })
+            // }
           })
         },
 
