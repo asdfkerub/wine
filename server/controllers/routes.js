@@ -34,7 +34,7 @@ module.exports = (function() {
             }
             if(data){
               // if there is data found
-              res.json({error:"Email is already registered."})
+              res.json(400,{error:"Email is already registered."})
             }else{
               // if there is no data
               var user = new User({email:req.body.email,password:req.body.password})
@@ -42,8 +42,9 @@ module.exports = (function() {
                 if(err){
                   console.log("Error saving new user".red)
                   res.status(400).send("Error while creating a new user.");
+                }else{
+                  res.sendStatus(200);
                 }
-                res.sendStatus(200);
               })
             }
           })
