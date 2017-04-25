@@ -34,6 +34,7 @@ module.exports = (function() {
             }
             if(data){
               // if there is data found
+              console.log("error where data is found".red)
               res.status(400).json({error:"Email is already registered."})
             }else{
               // if there is no data
