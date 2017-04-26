@@ -113,8 +113,16 @@ module.exports = (function() {
               res.sendStatus(418)
             }
           })
+        },
 
-
+        delete_wine: function(req,res){
+          Wine.remove({_id:req.params.id}).exec(function(err){
+            if(err){
+              console.log("Error while trying to delete a wine".red);
+              res.sendStatus(418)
+            }
+            res.sendStatus(200)
+          })
         },
 
 

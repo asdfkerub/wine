@@ -28,6 +28,9 @@ module.exports = function(app) {
     app.get('/users/wine/:id',function(req,res){
       route.user_wine(req,res);
     })
+    app.post('/users/wine/delete/:id',function(req,res){
+      route.delete_wine(req,res);
+    })
 
 
 };
