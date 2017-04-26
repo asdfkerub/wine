@@ -99,7 +99,23 @@ module.exports = (function() {
             }
 
           })
-        }
+        },
+
+        user_wine: function(req,res){
+          Wine.find({_user:req.params.id}).exec(function(err,data){
+            if(err){
+              console.log("Error trying to get user's wine".red);
+              res.redirect("/")
+            }
+            if(data){
+              res.json(data);
+            }else{
+              res.sendStatus(418)
+            }
+          })
+
+
+        },
 
 
 
