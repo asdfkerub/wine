@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 
 // Require the model and save it in a variable
 var User = mongoose.model('User');
+var Wine = mongoose.model('Wine');
 
 
 
@@ -66,7 +67,18 @@ module.exports = (function() {
               res.json({error:"Email is not registered."})
             }
           })
-        }
+        },
+
+        add_wine: function(req,res){
+          var wine = new Wine({title:req.body.title,_user:req.params.id})
+          wine.save(function(err,data){
+            if(err){
+              console.log("Error saving a new wine")
+              res.redirect('/')
+            }
+            res.sendStatus(200)
+          })
+        },
 
 
 
