@@ -25,6 +25,9 @@ module.exports = function(app) {
     app.get('/wines',function(req,res){
       route.all_wines(req,res);
     })
+    app.get('/users/wine/:id',function(req,res){
+      route.user_wine(req,res);
+    })
 
 
 };
