@@ -69,16 +69,16 @@ module.exports = (function() {
           })
         },
 
-        // add_wine: function(req,res){
-        //   var wine = new Wine({title:req.body.title,_user:req.params.id})
-        //   wine.save(function(err,data){
-        //     if(err){
-        //       console.log("Error saving a new wine")
-        //       res.redirect('/')
-        //     }
-        //     res.sendStatus(200)
-        //   })
-        // },
+        add_wine: function(req,res){
+          var wine = new Wine({title:req.body.title,_user:req.params.id})
+          wine.save(function(err,data){
+            if(err){
+              console.log("Error saving a new wine")
+              res.redirect('/')
+            }
+            res.sendStatus(200)
+          })
+        },
 
 
 

@@ -19,9 +19,9 @@ module.exports = function(app) {
     app.post('/get_user',function(req,res){
       route.get_user(req,res);
     })
-    // app.post('/add/wine/:id',function(req,res){
-    //   route.add_wine(req,res);
-    // })
+    app.post('/add/wine/:id',function(req,res){
+      route.add_wine(req,res);
+    })
 
 
 };
