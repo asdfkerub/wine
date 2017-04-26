@@ -22,6 +22,9 @@ module.exports = function(app) {
     app.post('/add/wine/:id',function(req,res){
       route.add_wine(req,res);
     })
+    app.get('/wines',function(req,res){
+      route.all_wines(req,res);
+    })
 
 
 };
