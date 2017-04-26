@@ -14,4 +14,11 @@ var UserSchema = new mongoose.Schema({
 
 }, {timestamps: true});
 
-mongoose.model('User', UserSchema); // We are setting this Schema in our Models as 'Task'
+var WineSchema = new mongoose.Schema({
+  title: String,
+  _user: {type:Schema.Types.ObjectId,ref: 'User'}
+
+},{timestamps:true});
+
+mongoose.model('User', UserSchema); // We are setting this Schema in our Models as 'Users'
+mongoose.model('Wine', WineSchema);
