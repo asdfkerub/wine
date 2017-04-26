@@ -18,10 +18,16 @@ module.exports = (function() {
           // Find all tasks and then return that data in res.json()
           User.find({}).exec(function(err,data){
             if(err){
+              // if there is error in the server-side
               console.log("ERROR RETRIEVING ALL USERS".red)
               res.redirect("/")
-            }else{
+            }
+            if(data){
+              // if there is data found
               res.json(data)
+            }else{
+              // if there is no data
+              res.json({error:"Cant retriev all users"})
             }
           })
 
@@ -79,6 +85,21 @@ module.exports = (function() {
             res.sendStatus(200)
           })
         },
+
+        all_wines: function(req,res){
+          Wine.find({}).exec(function(err,data){
+            if(err){
+              console.log("Error trying to retrieve all wine".red);
+              res.redirect("/");
+            }
+            if(data){
+              res.json(data);
+            }else{
+              res.json({error:"Cant retriev all wines"});
+            }
+
+          })
+        }
 
 
 
