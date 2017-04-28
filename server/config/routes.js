@@ -13,11 +13,23 @@ module.exports = function(app) {
     app.get('/users', function(req, res) {
         route.all_users(req, res);
     });
-    app.get('/users/add',function(req,res){
+    app.post('/users/add',function(req,res){
       route.add_user(req,res);
     })
     app.post('/get_user',function(req,res){
       route.get_user(req,res);
+    })
+    app.post('/add/wine/:id',function(req,res){
+      route.add_wine(req,res);
+    })
+    app.get('/wines',function(req,res){
+      route.all_wines(req,res);
+    })
+    app.get('/users/wine/:id',function(req,res){
+      route.user_wine(req,res);
+    })
+    app.post('/users/wine/delete/:id',function(req,res){
+      route.delete_wine(req,res);
     })
 
 
